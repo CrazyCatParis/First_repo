@@ -6,8 +6,11 @@ def get_upcoming_birthdays(users):
     for user in users:
         birthday = datetime.strptime(user["birthday"], "%Y.%m.%d").date()
         if birthday < today: # If birthday is in the past
-            birthday = birthday.replace(year=today.year + 1)    
-            days_to_birthday = (birthday - today).days
+            birthday = birthday.replace(year=today.year + 1)  
+
+        days_to_birthday = (birthday - today).days
+
+        print (f"{user['name']} will have birthdazy on {birthday} in {days_to_birthday} days.")
             
 
         if birthday.weekday() >= 5:  # If birthday is on Saturday or Sunday
@@ -23,3 +26,4 @@ users = [
 ]
 upcoming_birthdays = get_upcoming_birthdays(users)
 print("Upcoming Birthdays:", upcoming_birthdays)
+
