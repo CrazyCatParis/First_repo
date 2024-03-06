@@ -1,14 +1,20 @@
-
 from datetime import datetime
 
-today = datetime.today()
-future_date = '2027-03-08'
+def input_function():
+   while True:
+       try:
+           input_date = input('Please enter date in format YYYY-MM-DD: ')
+           input_datetime = datetime.strptime(input_date, "%Y-%m-%d")
+           break
+       except ValueError:
+           print('Incorrect data format, should be YYYY-MM-DD')
+   return input_datetime
 
-date_string = datetime.strptime(future_date, "%Y-%m-%d")
 
-difference = (date_string - today).days
-print(difference)
+def get_days_from_today(input_datetime_paramenter):
+    today = datetime.today()
+    difference = (input_datetime_paramenter - today).days
+    print(f'Your date is {difference} days from today')
+    return difference
 
-
-
-  
+get_days_from_today(input_function())
