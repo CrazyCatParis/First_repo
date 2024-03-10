@@ -1,3 +1,4 @@
+import datetime as dt
 from datetime import datetime as dtdt
 
 users = [
@@ -35,3 +36,4 @@ def get_birthday_on_week(birthdayThisYear, dateNow, user):
                     birthdayList.append({'name':user['name'], 'birthday':(birthdayThisYear + dt.timedelta(days=2)).strftime("%Y.%m.%d")})        
 
 print(get_upcoming_birthdays(users))
+    
